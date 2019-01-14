@@ -42,4 +42,6 @@ bbash ./UI.sh
 将会在 `localhost:8000` 启动前端服务器
 
 ## 访问前端页面
-打开页面：http://127.0.0.1:8000 即可
+打开页面：http://127.0.0.1:8000 即可，效果如下:
+
+<img src="imgs/screen-shot.png" width="70%">
