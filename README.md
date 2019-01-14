@@ -18,7 +18,7 @@ pip install -r ./requirements.txt
 
 ## 除了下载预训练模型外，还可以本地训练模型
 ### 下载数据
-见 https://github.com/howl-anderson/tools_for_corpus_of_people_daily，将 `train.txt` 和 `test.txt` 放到 `data` 目录下。
+见 [人民日报语料处理工具集](https://github.com/howl-anderson/tools_for_corpus_of_people_daily)，将 `train.txt` 和 `test.txt` 放到 `data` 目录下。
 
 ### 训练
 ```bash
