@@ -48,3 +48,7 @@ bbash ./UI.sh
 打开页面：http://127.0.0.1:8000 即可，效果如下:
 
 <img src="imgs/screen-shot.png" width="70%">
+
+## LICENSE
+
+AGPL-3.0
