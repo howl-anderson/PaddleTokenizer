@@ -1,6 +1,6 @@
 # PaddleTokenizer
 
-一个基于 PaddlePaddle 的基于深度神经网络的中文分词器。附带一个 Web UI，用于演示。
+使用 PaddlePaddle 实现基于深度神经网络的中文分词引擎
 
 <img src="imgs/demo.png" width="60%">
 
@@ -44,4 +44,4 @@ bbash ./UI.sh
 ## 访问前端页面
 打开页面：http://127.0.0.1:8000 即可，效果如下:
 
-<img src="imgs/screen-shot.png" width="70%">
+<img src="imgs/screen-shot.png" width="75%">
