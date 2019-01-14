@@ -2,7 +2,7 @@
 
 一个基于 PaddlePaddle 的基于深度神经网络的中文分词器。附带一个 Web UI，用于演示。
 
-<img src="imgs/demo.png" width="70%">
+<img src="imgs/demo.png" width="60%">
 
 
 ## 环境要求
