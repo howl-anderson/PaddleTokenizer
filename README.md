@@ -4,6 +4,9 @@
 
 <img src="imgs/demo.png" width="60%">
 
+## 神经网络结构
+BiLSTM+CRF
+
 
 ## 环境要求
 Python 3.5+
