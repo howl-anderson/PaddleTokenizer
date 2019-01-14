@@ -1,0 +1,4 @@
+paddlepaddle
+tokenizer_tools
+flask
+Flask-Cors

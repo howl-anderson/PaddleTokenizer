@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo for MicroTokenizer</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/vue-axios.min.js"></script>
+    <!--<script src="js/require.js"></script>-->
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-105150423-4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-105150423-4');
+    </script>
+</head>
+<body>
+<div class="container" id="app">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">PaddleTokenizer</h1>
+            <p class="lead">基于 PaddlePaddle 的基于深度神经网络的中文分词器</p>
+            <a class="btn btn-primary btn-sm" href="https://github.com/howl-anderson/PaddleTokenizer" role="button"
+               target="_blank">点击访问项目地址（@Github）</a>
+        </div>
+    </div>
+
+    <h2>选择远程服务器</h2>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">分词服务器：</span>
+        </div>
+        <input type="text" class="form-control" placeholder="" v-model="server">
+    </div>
+
+    <!-- 单一分词器 START -->
+    <h2>分词</h2>
+    <div class="input-group mb-3">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">输入想分词的句子</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                   aria-describedby="basic-addon1" v-model="message" name="message">
+        </div>
+        <div class="input-group mb-3">
+            <div class="form-group">
+                <button class="btn btn-primary" id="button-addon2" v-on:click="send_tokenize_request()">查看分词结果</button>
+            </div>
+        </div>
+    </div>
+    <div class="input-group mb-3" id="tokenizer_result">
+        <span class="border border-dark px-2 mx-1" v-for="token in token_list">{{ token }}</span>
+    </div>
+    <hr>
+    <!-- 单一分词器 END -->
+</div>
+<script src="index.js"></script>
+</body>
+</html>
