@@ -6,6 +6,8 @@ from data_reader import read_vocabulary
 
 exe = fluid.Executor(fluid.CPUPlace())
 path = "./test.inference.model"
+
+
 [inference_program, feed_target_names, fetch_targets] = fluid.io.load_inference_model(dirname=path, executor=exe)
 
 place = fluid.CPUPlace()

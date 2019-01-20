@@ -11,31 +11,30 @@ hidden_dim = 64
 
 if __name__ == "__main__":
     words = fluid.layers.data(name='words', shape=[1], dtype='int64', lod_level=1)
-    # words_len = fluid.layers.data(name='words_len', shape=[1], dtype='int64')
     tags = fluid.layers.data(name='tags', shape=[1], dtype='int64', lod_level=1)
 
-    embed_first = fluid.layers.embedding(
+    embed_char = fluid.layers.embedding(
         input=words,
         size=[dict_size, EMBED_SIZE],
         dtype='float32')
 
     place = fluid.CPUPlace()
 
+    dataset_func = functools.partial(generator_fn, 'data/train.txt', 'data/unicode_char_list.txt', 'data/tags.txt')
+
     train_reader = paddle.batch(
-        paddle.reader.shuffle(functools.partial(generator_fn, 'data/train.txt', 'data/unicode_char_list.txt', 'data/tags.txt'), buf_size=500),
+        paddle.reader.shuffle(dataset_func, buf_size=500),
         batch_size=256)
 
-    single_train_reader = paddle.reader.shuffle(functools.partial(generator_fn, 'data/train.txt', 'data/unicode_char_list.txt', 'data/tags.txt'), buf_size=500)
-
     forward_hidden_state, _ = fluid.layers.dynamic_lstm(
-        input=embed_first,
+        input=embed_char,
         size=EMBED_SIZE,
         candidate_activation='relu',
         gate_activation='sigmoid',
         cell_activation='sigmoid')
 
     backward_hidden_state, _ = fluid.layers.dynamic_lstm(
-        input=embed_first,
+        input=embed_char,
         size=EMBED_SIZE,
         candidate_activation='relu',
         gate_activation='sigmoid',
