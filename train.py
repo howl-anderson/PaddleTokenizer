@@ -27,12 +27,22 @@ if __name__ == "__main__":
 
     single_train_reader = paddle.reader.shuffle(functools.partial(generator_fn, 'data/train.txt', 'data/unicode_char_list.txt', 'data/tags.txt'), buf_size=500)
 
-    hidden_state, cell_state = fluid.layers.dynamic_lstm(
+    forward_hidden_state, _ = fluid.layers.dynamic_lstm(
         input=embed_first,
         size=EMBED_SIZE,
         candidate_activation='relu',
         gate_activation='sigmoid',
         cell_activation='sigmoid')
+
+    backward_hidden_state, _ = fluid.layers.dynamic_lstm(
+        input=embed_first,
+        size=EMBED_SIZE,
+        candidate_activation='relu',
+        gate_activation='sigmoid',
+        cell_activation='sigmoid',
+        is_reverse=True)
+
+    hidden_state = fluid.layers.concat([forward_hidden_state, backward_hidden_state], 1)
 
     feature = fluid.layers.dropout(hidden_state, 0.1)
 
