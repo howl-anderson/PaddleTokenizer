@@ -39,7 +39,7 @@ python ./http_server.py
 
 ## 启动前端
 ```bash
-bbash ./UI.sh
+bash ./UI.sh
 ```
 
 将会在 `localhost:8000` 启动前端服务器
