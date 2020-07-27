@@ -20,15 +20,34 @@ pip install -r ./requirements.txt
 下载 release 中的模型文件，解压缩后将目录 `test.inference.model` 放置到本项目的根目录下即可。
 
 ## 本地训练模型
+
 ### 下载数据
+
 见 [人民日报语料处理工具集](https://github.com/howl-anderson/tools_for_corpus_of_people_daily)，将 conll 格式的 `train.txt` 和 `test.txt` 放到 `data` 目录下。
 
 ### 训练
+
 ```bash
-python ./train.py
+python -m paddle_tokenizer.train
 ```
 
 在 2017 款 MacBook Pro (2.5 GHz Intel Core i7) 上训练耗时约十分钟。 
+
+## 命令行使用 
+
+``` python
+from paddle_tokenizer.server import server
+
+result = server("王小明在北京的清华大学读书。")
+print(result)
+```
+
+输出：
+
+``` text
+['王', '小明', '在', '北京', '的', '清华', '大学', '读书', '。']
+```
+
 
 ## 本地推理 Demo
 
