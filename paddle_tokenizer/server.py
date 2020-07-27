@@ -2,7 +2,7 @@ import numpy as np
 import paddle.fluid as fluid
 from tokenizer_tools.tagset.BMES import BMESEncoderDecoder
 
-from data_reader import read_vocabulary
+from paddle_tokenizer.data_reader import read_vocabulary
 
 exe = fluid.Executor(fluid.CPUPlace())
 path = "./test.inference.model"

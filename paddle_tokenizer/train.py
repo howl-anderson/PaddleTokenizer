@@ -3,7 +3,7 @@ import functools
 import paddle
 import paddle.fluid as fluid
 
-from data_reader import generator_fn
+from paddle_tokenizer.data_reader import generator_fn
 
 dict_size = 128003
 EMBED_SIZE = 128

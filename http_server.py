@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
-from server import server
+from paddle_tokenizer.server import server
 
 app = Flask(__name__)
 app.config["JSON_AS_ASCII"] = False
