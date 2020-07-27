@@ -11,9 +11,18 @@ BiLSTM+CRF
 ## 环境要求
 Python 3.5+
 
-## 安装依赖
+## 安装
+
+从 PYPI 安装：
+
 ```bash
-pip install -r ./requirements.txt
+pip install paddle_tokenizer
+```
+
+或者本地安装：
+
+``` bash
+pip install -e ./
 ```
 
 ## 预训练模型
