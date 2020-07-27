@@ -8,16 +8,18 @@ exe = fluid.Executor(fluid.CPUPlace())
 path = "./test.inference.model"
 
 
-[inference_program, feed_target_names, fetch_targets] = fluid.io.load_inference_model(dirname=path, executor=exe)
+[inference_program, feed_target_names, fetch_targets] = fluid.io.load_inference_model(
+    dirname=path, executor=exe
+)
 
 place = fluid.CPUPlace()
 
 decoder = BMESEncoderDecoder()
 
-vocabulary = read_vocabulary('data/unicode_char_list.txt')
+vocabulary = read_vocabulary("data/unicode_char_list.txt")
 reverse_vocabulary = {v: k for k, v in vocabulary.items()}
 
-tag = read_vocabulary('data/tags.txt')
+tag = read_vocabulary("data/tags.txt")
 reverse_tag = {v: k for k, v in tag.items()}
 
 
@@ -28,7 +30,7 @@ def infer(data):
         inference_program,
         feed={feed_target_names[0]: word},
         fetch_list=fetch_targets,
-        return_numpy=False
+        return_numpy=False,
     )
 
     raw_data = np.array(results)
@@ -44,10 +46,9 @@ def server(input_text):
     output_tag = [reverse_tag[i] for i in result]
 
     result = decoder.decode_char_tag_pair(list(zip(input_text, output_tag)))
-    return(result)
+    return result
 
 
-if __name__ == '__main__':
-    result = server('王小明在北京的清华大学读书。')
+if __name__ == "__main__":
+    result = server("王小明在北京的清华大学读书。")
     print(result)
-

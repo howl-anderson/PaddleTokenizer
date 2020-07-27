@@ -30,7 +30,9 @@ def generator_fn(input_file, vocabulary_file, tag_file):
 
 
 if __name__ == "__main__":
-    for i, j in enumerate(generator_fn('data/train.txt', 'data/unicode_char_list.txt', 'data/tags.txt')):
+    for i, j in enumerate(
+        generator_fn("data/train.txt", "data/unicode_char_list.txt", "data/tags.txt")
+    ):
         if i < 20:
             print(j)
         else:

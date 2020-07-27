@@ -4,14 +4,14 @@ from flask_cors import CORS
 from server import server
 
 app = Flask(__name__)
-app.config['JSON_AS_ASCII'] = False
-app.config['DEBUG'] = False
+app.config["JSON_AS_ASCII"] = False
+app.config["DEBUG"] = False
 CORS(app)
 
 
-@app.route("/single_tokenizer", methods=['GET'])
+@app.route("/single_tokenizer", methods=["GET"])
 def single_tokenizer():
-    message = request.args.get('message')
+    message = request.args.get("message")
 
     segment_result = server(message)
 
@@ -19,4 +19,4 @@ def single_tokenizer():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host="0.0.0.0", port=5000)

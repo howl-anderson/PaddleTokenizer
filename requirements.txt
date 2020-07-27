@@ -1,4 +1,4 @@
-paddlepaddle
+paddlepaddle<2.0
 tokenizer_tools
 flask
 Flask-Cors
